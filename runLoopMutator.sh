@@ -1,15 +1,19 @@
-i=1;
+./CreateMutators.sh
 
-cd src/main/java
-
+cd ../TD1-DEVOPS
 function check {
-	rm ../../../processorName.out
-	for i in *;
+	touch ../log.txt
+	rm ../log.txt
+	for i in ../TD1-MUTATOR/src/main/java/*;
 	do
-        echo "$i" | sed 's/.java//g' >> ../../../processorName.out
-		
+        processor=$(echo "$i" | sed 's:.*/::' | sed 's/.java//g')
+		echo $processor >> ../log.txt
+		mvn package -Dprocessor=$processor |  grep -e 'Skipped: [0-9]*$' >> ../log.txt
+		echo -e "\n" >> ../log.txt
     done
-	cat ../../../processorName.out
+	echo "################## RESULT ##################"
+	echo ""
+	cat ../log.txt
 
 }
 
