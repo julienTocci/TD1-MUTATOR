@@ -1,27 +1,16 @@
 import spoon.processing.AbstractProcessor;
 import spoon.reflect.code.*;
-import spoon.reflect.cu.SourcePosition;
 import spoon.reflect.declaration.*;
-import spoon.reflect.factory.Factory;
-import spoon.reflect.reference.CtReference;
-import spoon.reflect.reference.CtTypeReference;
-import spoon.reflect.visitor.CtVisitor;
-import spoon.reflect.visitor.Filter;
-import spoon.reflect.visitor.chain.CtFunction;
-import spoon.reflect.visitor.chain.CtQuery;
 
-import java.lang.annotation.Annotation;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+
+
 
 
 /**
  * Created by justin on 02/03/17.
  */
 public class ContractProcessor extends AbstractProcessor<CtElement> {
-    private static final Random random = new Random();
+
 
     public void process(CtElement element) {
         if (element instanceof CtClass<?>) {
@@ -45,8 +34,6 @@ public class ContractProcessor extends AbstractProcessor<CtElement> {
                                 "            }"
                 );
                 f.setBody(body);
-                System.out.println(cons.toString());
-
             }
         }
     }
