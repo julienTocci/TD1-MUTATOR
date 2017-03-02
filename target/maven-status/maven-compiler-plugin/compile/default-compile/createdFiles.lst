@@ -1,1 +1,6 @@
+IntComparaisonProcessor.class
+ContractProcessor.class
+TestProcessor.class
 CatchProcessor.class
+SwitchProcessor.class
+AirScanFlyOnlyProcessor.class
